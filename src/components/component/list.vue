@@ -6,7 +6,7 @@
     </div>
     <ul class="listwarpper" :style="{height:listheight+'px'}">
       <li class="clearfix" v-for="(li,index) in list">
-        <em @click="changsong(li.hash)">{{li.name}}</em>
+        <em @click="changsong(li.hash,index)" :class="{active:index===currents}" :key="index">{{li.name}}</em>
         <span class="delete" @click="deletethis(index)">X</span>
       </li>
     </ul>
@@ -17,16 +17,13 @@
   import {mapState, mapMutations} from 'vuex'
 
   export default {
-    data(){
-      return{
-        list:JSON.parse(localStorage.getItem('list'))
-      }
-    },
     computed: {
       ...mapState([
         'slide',
         'hash',
-        'deleteit'
+        'deleteit',
+        'currents',
+        'list'
       ]),
       listheight() {
         return document.documentElement.clientHeight - 40 - 31
@@ -36,12 +33,13 @@
       ...mapMutations([
         'plays'
       ]),
-      changsong(hash) {
+      changsong(hash,index) {
+        this.$store.state.currents=index;
         this.$store.commit('updatehash', hash);
         setTimeout(() => {
           this.$store.commit('plays');
+          this.$store.state.slide = false;
         }, 1000);
-        this.$store.state.slide = false;
       },
       deleteall() {
         this.list.splice(0, this.list.length)
@@ -53,6 +51,11 @@
         this.$store.state.slide = false;
       }
     },
+    watch:{
+      list:function (val,oldval) {
+        console.log(val)
+      }
+    }
   }
 </script>
 <style lang="scss">
@@ -94,6 +97,10 @@
     width: 80%;
     text-align: left;
     font-style: normal;
+    @at-root .active{
+      color:red;
+      font-weight: bold;
+    }
   }
 
   span {

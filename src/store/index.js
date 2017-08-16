@@ -21,7 +21,8 @@ const state={
   slide:false,
   list:[],
   cue:false,
-  msg:''
+  msg:'',
+  currents:0
 };
 
 const mutations={
