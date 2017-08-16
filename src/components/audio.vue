@@ -4,7 +4,7 @@
     <h1>{{songname}}</h1>
     <img :src="songimg" id="blur" width="100%">
     <img :src="songimg" class="img">
-    <audio :src="audiosrc" id="audio" v-on:timeupdate="updateTime" loop></audio>
+    <audio :src="audiosrc" id="audio" v-on:timeupdate="updateTime" v-on:auto="changnext"></audio>
     <div class="showlyrics">
       <ul :style="{marginTop:'-'+marginTop+'px'}">
         <li v-for="lyric in lyrics" :id="lyric.id">{{lyric.ly}}</li>
@@ -85,12 +85,10 @@
       },
       changprev() {
         for(let i=0;i<this.list.length;i++){
-          console.log((this.songname).indexOf(this.list[i].name))
           if(this.songname===this.list[i].name){
             this.$store.dispatch('prev', i);
             continue;
           }
-          console.log('遗漏的信息'+JSON.stringify(this.list));
         }
       },
       changnext(){
