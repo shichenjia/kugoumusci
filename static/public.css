@@ -1,0 +1,346 @@
+html,
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+	padding: 0;
+	margin: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: inherit;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+a {
+	color: #444;
+	outline: 0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #C40000;
+}
+
+ul,
+li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+input,
+input:focus,
+select,
+select:focus,
+textarea,
+textarea:focus,
+button,
+button:focus {
+	font-size: 100%;
+	font-family: inherit;
+	border: none;
+	outline: none;
+}
+
+body {
+	font-size: 14px;
+	line-height: 20px;
+	font-family: "microsoft yahei";
+	box-sizing: border-box;
+}
+
+.clearfix:after {
+	display: block;
+	content: "$";
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: normal;
+}
+
+.cell {
+	display: table-cell;
+	*display: inline-block;
+	width: 2000px;
+	*width: auto
+}
+
+.fl {
+	float: left;
+	display: inline;
+}
+
+.fr {
+	float: right;
+	display: inline;
+}
+
+.w1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.mar5 {
+	margin-bottom: 5px;
+}
+
+.mar15 {
+	margin-bottom: 15px;
+}
+
+.mar20 {
+	margin-bottom: 20px;
+}
+
+.pad10 {
+	padding-bottom: 10px;
+	#padding-bottom: 17px;
+}
+
+
+/*reister popup*/
+
+.register_pop h2 {
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	background: #5aade1;
+}
+
+/*.login_pop h2 {
+	text-align: center;
+    background: #6CB4FF;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 20px;
+    padding: 10px 0;
+}
+*/
+.login_pop h2{
+	color: #3e4c69;
+	text-align: center;
+	padding: 15px 0 25px;
+}
+.login_part{
+	border-top:2px solid #b5b5b5;
+	padding-top: 25px;
+}
+.register_pop,
+.revise {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	background: #ffffff;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.register_pop p,
+.revise p {
+	line-height: 25px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #FDFFFE;
+	margin-bottom: 10px;
+}
+
+.register_part {
+	position: relative;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.register_part label,
+.revise label,
+.login_part label {
+	width: 75px;
+	text-align: right;
+	font-size: 14px;
+	color: #010000;
+}
+
+.login_part label {
+	width: 60px !important;
+}
+
+.register_part input,
+.revise input {
+	width: 290px;
+	height: 30px;
+	margin-top: 10px;
+	border: 1px solid #b4def6;
+	padding-left: 2px;
+	display: inline-block;
+}
+
+.login_part {
+	width: 315px;
+	margin: 0 auto;
+}
+/*
+.login_part .login_name,
+.login_part .login_password {
+	width: 235px;
+	height: 30px;
+	padding-left: 15px;
+	background: -moz-linear-gradient(top, #79b9ff 0%, #cde5fd 100%);
+	background: -webkit-linear-gradient(top, #79b9ff 0%, #cde5fd 100%);
+	background: -o-linear-gradient(top, #79b9ff 0%, #cde5fd 100%);
+	background: -ms-linear-gradient(top, #79b9ff 0%, #cde5fd 100%);
+	background: linear-gradient(to bottom, #79b9ff 0%, #cde5fd 100%);
+	box-shadow: 5px 5px 10px #868686;
+	-moz-box-shadow: 5px 5px 10px #868686;
+	-ms-box-shadow: 5px 5px 10px #868686;
+	-o-box-shadow: 5px 5px 10px #868686;
+	border-radius: 15px;
+	-o-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	margin-bottom: 15px;
+}
+
+.login_part form>.login_btn,
+.login_to_register {
+	display: inline-block;
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 5px;
+	background: #6cb4ff;
+	box-shadow: 5px 5px 5px #868686;
+	-moz-box-shadow: 5px 5px 5px #868686;
+	-ms-box-shadow: 5px 5px 5px #868686;
+	-o-box-shadow: 5px 5px 5px #868686;
+	color: white;
+	cursor: pointer;
+}
+*/
+
+.login_part .login_name,
+.login_part .login_password {
+	display: inline-block;
+	width: 185px;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+    margin-bottom: 25px;
+}
+.login_part form>.login_btn{
+	display: block;
+	width: 140px;
+	height: 35px;
+	margin-left: 94px;
+	background: #404b69;
+	color: white;
+	border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+input:-webkit-autofill{
+	background:#79b9ff !important ;
+}
+.login_to_register:hover {
+	color: white;
+}
+
+.register_part input[type="submit"],
+.revise input[type="submit"] {
+	margin-top: 25px;
+	width: 130px;
+	height: 30px;
+	font-size: 16px;
+	color: white;
+	background: #5aade1;
+	border: 0;
+}
+
+.register_box {
+	text-align: center;
+}
+
+
+/*login popup*/
+
+.login_pop {
+	text-align: center;
+}
+
+.login_to_register:hover {
+	text-decoration: none;
+}
+
+.cancel_btn {
+	display: inline-block;
+	width: 40px;
+	margin-left: 10px;
+	background: #676464;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	font-style: normal;
+	cursor: pointer;
+	position: absolute;
+	/*right: 2px;
+    top: 5px;
+    z-index: 2;*/
+	display: none;
+}
+
+.chat_box_speak {
+	position: relative;
+}
+
+.get_code_btn {
+	display: inline-block;
+	height: 30px;
+	width: 125px;
+	margin-left: 5px;
+	background: #bfbfbf;
+	color: white;
+}
+.TeacherAddOrder input,.TeacherAddOrder select{
+	border:1px solid #ccc;
+}
