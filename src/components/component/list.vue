@@ -6,8 +6,8 @@
     </div>
     <ul class="listwarpper" :style="{height:listheight+'px'}">
       <li class="clearfix" v-for="li in list">
-        <em @click="changsong(li.hash,li.id)" :value="li.id" :class="{active:li.id==currents}" :key="li.id">{{li.name}}</em>
-        <span class="delete" @click="deletethis(index)">X</span>
+        <em @click="changsong(li.hash,li.id)" :class="{active:li.id==currents}" :key="li.id">{{li.name}}</em>
+        <span class="delete" @click="deletethis(index)"></span>
       </li>
     </ul>
     <span @click="close" class="close">关闭</span>
@@ -50,11 +50,6 @@
       close() {
         this.$store.state.slide = false;
       }
-    },
-    watch:{
-      currents:function (val,oldval) {
-        console.log(val)
-      }
     }
   }
 </script>
@@ -69,7 +64,7 @@
     background: rgba(0, 0, 0, .5);
 
   .collection {
-    padding: 10px;
+    padding: 15px 10px;
     color: white;
 
   span {
@@ -79,6 +74,11 @@
 
   em {
     float: right;
+    display: inline-block;
+    width: 20%;
+    background: url(../../../static/clear.png) no-repeat 20px center;
+    background-size: 16px 16px;
+    text-align: right;
     font-style: normal;
   }
 
@@ -106,7 +106,10 @@
   span {
     float: left;
     width: 20%;
+    height:20px;
     text-align: right;
+    background: url(../../../static/close.png) no-repeat right center;
+    background-size: 32px 32px;
   }
 
   }
