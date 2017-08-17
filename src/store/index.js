@@ -22,7 +22,8 @@ const state={
   list:[],
   cue:false,
   msg:'',
-  currents:0
+  currents:0,
+  active:0
 };
 
 const mutations={
@@ -36,7 +37,7 @@ const mutations={
     if(state.play){
       for(let i=0;i<state.timeList.length;i++){
         if(state.currentTime>state.timeList[i]){
-          document.getElementById(i).setAttribute('class','current');
+          state.active=i;
           state.marginTop=40 * i;
         }
       }
