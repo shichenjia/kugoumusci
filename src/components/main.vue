@@ -82,7 +82,8 @@
         for (let i in res.body.data) {
           this.songs.push({
             'hash': res.body.data[i].hash,
-            'name': res.body.data[i].filename.split('【')[0]
+            'name': res.body.data[i].filename.split('【')[0],
+            'id':i
           });
         }
         for (let i in res.body.banner) {
