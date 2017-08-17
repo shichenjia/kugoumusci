@@ -7,7 +7,9 @@
     <audio :src="audiosrc" id="audio" @timeupdate="updateTime" @auto="changnext"></audio>
     <div class="showlyrics">
       <ul :style="{marginTop:'-'+marginTop+'px'}">
-        <li v-for="lyric in lyrics" :id="lyric.id">{{lyric.ly}}</li>
+        <li v-for="(lyric,index) in lyrics" :class="{current:index===active}" :key="lyric.id">
+          {{lyric.ly}}
+        </li>
       </ul>
     </div>
     <div class="line">
@@ -39,7 +41,6 @@
         audiosrc: '',
         author: '',
         lyrics: [],
-        activeClass: 'current',
         endtime:0
       }
     },
@@ -57,7 +58,8 @@
         'slide',
         'cue',
         'list',
-        'msg'
+        'msg',
+        'active'
       ]),
       ...mapGetters([
         'currentTime'
@@ -93,6 +95,7 @@
         }
       },
       changnext(){
+        console.log('changnext11111');
         for(let i=0;i<this.list.length;i++){
           if(this.songname===this.list[i].name){
             this.$store.dispatch('next', i);
