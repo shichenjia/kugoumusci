@@ -4,7 +4,7 @@
     <h1>{{songname}}</h1>
     <img :src="songimg" id="blur" width="100%">
     <img :src="songimg" class="img">
-    <audio :src="audiosrc" id="audio" v-on:timeupdate="updateTime" v-on:auto="changnext"></audio>
+    <audio :src="audiosrc" id="audio" @timeupdate="updateTime" @auto="changnext"></audio>
     <div class="showlyrics">
       <ul :style="{marginTop:'-'+marginTop+'px'}">
         <li v-for="lyric in lyrics" :id="lyric.id">{{lyric.ly}}</li>
