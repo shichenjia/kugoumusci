@@ -15,7 +15,7 @@
     </div>
     <div class="clearfix">
       <span class="starttime fl">{{currentTime}}</span>
-      <span class="endtime fr"></span>
+      <span class="endtime fr">{{endtime}}</span>
     </div>
     <div class="button">
       <div class="prev" @click="changprev"></div>
@@ -39,7 +39,8 @@
         audiosrc: '',
         author: '',
         lyrics: [],
-        activeClass: 'current'
+        activeClass: 'current',
+        endtime:0
       }
     },
     computed: {
@@ -113,7 +114,7 @@
           const alltime = res.body.data.timelength;
           const min = parseInt((alltime / 1000) / 60);
           const second = parseInt((alltime / 1000) % 60);
-          document.getElementsByClassName('endtime')[0].innerHTML = min + ':' + time(second);
+          this.endtime = min + ':' + time(second);
           this.$store.state.duration = (alltime / 1000);
           this.$store.state.songname = res.body.data.audio_name;
           this.$store.state.songimg = res.body.data.img;
