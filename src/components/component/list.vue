@@ -5,8 +5,8 @@
       <em @click="deleteall">清空</em>
     </div>
     <ul class="listwarpper" :style="{height:listheight+'px'}">
-      <li class="clearfix" v-for="(li,index) in list">
-        <em @click="changsong(li.hash,index)" :class="{active:index===currents}" :key="index">{{li.name}}</em>
+      <li class="clearfix" v-for="li in list">
+        <em @click="changsong(li.hash,li.id)" :value="li.id" :class="{active:li.id==currents}" :key="li.id">{{li.name}}</em>
         <span class="delete" @click="deletethis(index)">X</span>
       </li>
     </ul>
@@ -33,8 +33,8 @@
       ...mapMutations([
         'plays'
       ]),
-      changsong(hash,index) {
-        this.$store.state.currents=index;
+      changsong(hash,keyid) {
+        this.$store.state.currents=keyid;
         this.$store.commit('updatehash', hash);
         setTimeout(() => {
           this.$store.commit('plays');
@@ -52,7 +52,7 @@
       }
     },
     watch:{
-      list:function (val,oldval) {
+      currents:function (val,oldval) {
         console.log(val)
       }
     }
