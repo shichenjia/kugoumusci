@@ -1,12 +1,12 @@
 <template>
   <header class="header clearfix">
     <ul class="menu fl">
-      <li><router-link to="/">新歌</router-link></li>
-      <li><router-link to="/ranking">排行</router-link></li>
+      <li><router-link to="/">新歌榜</router-link></li>
+      <li><router-link to="/ranking">排行榜</router-link></li>
       <li><router-link to="/songs">歌单</router-link></li>
       <li><router-link to="/singer">歌手</router-link></li>
+      <li><router-link to="/search"><img src="../../../static/search.png" width="20" height="20"></router-link></li>
     </ul>
-    <i class="icon-search"></i>
   </header>
 
 </template>
@@ -25,7 +25,7 @@
   }
   .menu{
     display: flex;
-    width: 90%;
+    width: 100%;
     text-align:center;
     height:42px;
     li{
@@ -42,8 +42,5 @@
       }
 
       }
-  }
-  .icon-search{
-   @include bg(search)
   }
 </style>

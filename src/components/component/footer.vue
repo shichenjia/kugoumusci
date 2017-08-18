@@ -29,7 +29,8 @@
         'isShow',
         'who',
         'left',
-        'list'
+        'list',
+        'play'
       ])
     },
       methods:{
@@ -43,9 +44,9 @@
         goinfo(){
           this.$store.state.isShow=true;
         },
-        stop(){
+        stop() {
+          this.$store.state.play = !this.$store.state.play;
           this.$store.commit('plays');
-          this.$store.state.play= !this.$store.state.play;
         },
         changnext(){
           for(let i=0;i<this.list.length;i++){
@@ -76,6 +77,7 @@
     position: absolute;
     bottom: 0;
     left:0;
+    z-index:100;
     width: 100%;
     padding: 10px 0;
     background: skyblue;
