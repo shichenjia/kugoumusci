@@ -4,7 +4,7 @@
     <h1>{{songname}}</h1>
     <img :src="songimg" id="blur" width="100%">
     <img :src="songimg" class="img">
-    <audio :src="audiosrc" id="audio" @timeupdate="updateTime" @auto="changnext"></audio>
+    <audio :src="audiosrc" id="audio" @timeupdate="updateTime" @ended="changnext"></audio>
     <div class="showlyrics">
       <ul :style="{marginTop:'-'+marginTop+'px'}">
         <li v-for="(lyric,index) in lyrics" :class="{current:index===active}" :key="lyric.id">
@@ -95,7 +95,6 @@
         }
       },
       changnext(){
-        console.log('changnext11111');
         for(let i=0;i<this.list.length;i++){
           if(this.songname===this.list[i].name){
             this.$store.dispatch('next', i);
@@ -183,7 +182,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: white;
+    color: #1296db;
     z-index: 999;
   }
 
@@ -199,9 +198,12 @@
     overflow-y: auto;
     font-size: 16px;
 
-  li.current {
-    color: red;
-    font-weight: bold;
+  li{
+    color:white;
+    &.current{
+      color: red;
+      font-weight: bold;
+    }
   }
 
   }
