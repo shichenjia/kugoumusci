@@ -1,13 +1,12 @@
 <template>
   <div class="lists">
     <div class="collection clearfix">
-      <span>循环歌曲列表</span>
+      <span>歌曲列表</span>
       <em @click="deleteall">清空</em>
     </div>
     <ul class="listwarpper" :style="{height:listheight+'px'}">
-
-      <li class="clearfix" v-for="(li,index) in list">
-        <em @click="changsong(li.hash,li.id)" :class="{active:li.id==currents}" :title="currents" :value="currents" :key="li.id">{{li.name}}</em>
+      <li class="clearfix" v-for="li in list">
+        <em @click="changsong(li.hash,li.id)" :class="{active:li.id==currents}" :key="li.id">{{li.name}}</em>
         <span class="delete" @click="deletethis(index)"></span>
       </li>
     </ul>
@@ -98,7 +97,7 @@
     width: 80%;
     text-align: left;
     font-style: normal;
-    &.active{
+    @at-root .active{
       color:red;
       font-weight: bold;
     }
