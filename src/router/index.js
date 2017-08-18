@@ -34,6 +34,11 @@ export default new Router({
       path:'/singer',
       name:'singer',
       component:Singer
+    },
+    {
+      path:'/search',
+      name:'search',
+      component:Search
     }
   ]
 })
