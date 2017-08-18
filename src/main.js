@@ -3,13 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import EU from 'element-ui'
 import resource from 'vue-resource'
 import '../static/public.css'
 import store from './store/index'
 import '../static/animate.css'
 
-Vue.use(EU);
 Vue.use(resource);
 
 Vue.config.productionTip = false
