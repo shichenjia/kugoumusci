@@ -23,7 +23,8 @@ const state={
   cue:false,
   msg:'',
   currents:0,
-  active:0
+  active:0,
+  height:0
 };
 
 const mutations={
@@ -31,10 +32,11 @@ const mutations={
     state.currentTime = time;
     let totalTime=state.duration;
     let speed=state.windowWidth/totalTime;
-    var counter=setTimeout(()=> {
-      state.left=speed*state.currentTime.toFixed(0);
-    },1000);
+    var counter;
     if(state.play){
+      counter=setTimeout(()=> {
+        state.left=speed*state.currentTime.toFixed(0);
+      },1000);
       for(let i=0;i<state.timeList.length;i++){
         if(state.currentTime>state.timeList[i]){
           state.active=i;
@@ -68,6 +70,14 @@ const mutations={
 
 const actions={
   prev({commit,state},index){
+    if(state.list.length==1){
+      state.cue=true;
+      state.msg='就一首大哥,往上怎么切？';
+      setTimeout(()=>{
+        state.cue=false;
+      },1500);
+      return;
+    }
     let i = index === 0 ? state.list.length - 1 : (--index);
     commit('updatehash',state.list[i].hash);
     setTimeout(()=>{
@@ -75,6 +85,14 @@ const actions={
     },1000)
   },
   next({commit,state},index){
+    if(state.list.length==1){
+      state.cue=true;
+      state.msg='就一首大哥,往下怎么切？';
+      setTimeout(()=>{
+        state.cue=false;
+      },1500);
+      return;
+    }
     let i = index === state.list.length - 1 ? 0 : (++index);
     commit('updatehash',state.list[i].hash);
     setTimeout(()=>{
@@ -94,6 +112,9 @@ const  getters={
     second = time(second);
     return min + ':' + second
   },
+  height:state=>{
+    return document.documentElement.clientHeight-90-42;
+  }
 };
 
 export default new Vuex.Store({
