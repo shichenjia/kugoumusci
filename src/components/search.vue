@@ -72,6 +72,7 @@
         }, 1000)
       },
       search() {
+        this.results=[];
         this.$http.get('http://127.0.0.1:3000/', {params: {url: 'http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword=' + encodeURI(this.keywords) + '&page=1&pagesize=20&showtype=1'}}, {emulateJSON: true}).then(res => {
           console.log(res.body);
           for(let i=0;i<res.body.data.info.length;i++){
@@ -90,6 +91,7 @@
       },
       hotsearch(word) {
         this.keywords = word;
+        this.results=[];
         this.$http.get('http://127.0.0.1:3000/', {params: {url: 'http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword=' + encodeURI(word) + '&page=1&pagesize=20&showtype=1'}}, {emulateJSON: true}).then(res => {
           console.log(res.body);
           for(let i=0;i<res.body.data.info.length;i++){
